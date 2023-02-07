@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+{% block html %}
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+   
+    {% block body %}
+    <header>
+     
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-md-auto gap-2">
+                  <li class="nav-item rounded">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill me-2"></i>Hi {{ user.username }}!</a>
+                  </li>
+                  <li class="nav-item rounded">
+                    <a class="nav-link" href="{% url 'weather:weather' %}"><i class="bi bi-people-fill me-2"></i>3 Günlük</a>
+                  </li>
+                  <li class="nav-item rounded">
+                    <a class="nav-link" href="{% url 'weather:weather5' %}"><i class="bi bi-telephone-fill me-2"></i>5 Günlük</a>
+                  </li>
+                  <li class="nav-item rounded">
+                    <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-telephone-fill me-2"></i>Çıkış Yap!</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+       
+    </header>
+    {% block main %} {% endblock %}
+    {% endblock %}
+    <script src = "{% static 'js/bootstrap.min.js'%}"></script>
+
+</body>
+</html>
+{% endblock %}

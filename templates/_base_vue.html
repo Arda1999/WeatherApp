@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block html %}
+{% load static %}
+
+<html lang="">
+  <head>
+    {% block head %} {{ block.super }} {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <script defer src="http://localhost:8081/js/chunk-vendors.js"></script><script defer src="http://localhost:8081/js/app.js"></script></head>
+  <body>
+    {% block body %}
+      {{ block.super }} <!-- block super ile bi base.html dosyasindan mira aliyoruz-->
+
+    <noscript>
+      <strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    {% endblock body %}
+  </body>
+</html>
+{% endblock html %}
